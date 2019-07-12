@@ -15,8 +15,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mvpapp.DetailsDialog;
 import com.example.mvpapp.R;
 import com.example.mvpapp.RecyclerAdapter;
+import com.example.mvpapp.RecyclerItemClickListener;
 import com.example.mvpapp.data.model.Names;
 import com.example.mvpapp.main.MainPresenter;
 
@@ -46,14 +48,37 @@ public class Main2Activity extends AppCompatActivity implements Main2MvpView {
 
     @Override
     public void LoadData() {
-      //  namesList = mainPresenter.lst;
+        namesList = mainPresenter.lst;
        // Toast.makeText(this, "" + mainPresenter.lst.size(), Toast.LENGTH_SHORT).show();
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(mainPresenter.lst);
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(namesList);
         RecyclerView.LayoutManager recyce = new LinearLayoutManager(Main2Activity.this);
        // recyclerView.addItemDecoration(new GridSpacingdecoration(2, dpToPx(5), true));
         recyclerView.setLayoutManager(recyce);
       //  recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(recyclerAdapter);
+
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        // do whatever
+
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                        DetailsDialog cdd=new DetailsDialog(Main2Activity.this,namesList.get(position));
+                        cdd.setCanceledOnTouchOutside(true);
+                        cdd.setCancelable(true);
+
+                        cdd.show();
+                        // do whatever
+                        //Toast.makeText(SubActivity.this, "timedate : " +  hacks.get(position).getTimestampFormat(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+        );
+
     }
 
     @Override
