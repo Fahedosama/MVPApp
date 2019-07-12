@@ -65,6 +65,7 @@ public class Main2Activity extends AppCompatActivity implements Main2MvpView {
     @Override
     public void hideProgress() {
         progressBar.setVisibility(View.GONE);
+        Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
     }
 
     public class GridSpacingdecoration extends RecyclerView.ItemDecoration {
