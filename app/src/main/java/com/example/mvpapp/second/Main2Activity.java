@@ -59,6 +59,7 @@ public class Main2Activity extends AppCompatActivity implements Main2MvpView {
     @Override
     public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
+        Toast.makeText(this, "Please Wait...", Toast.LENGTH_SHORT).show();
     }
 
     @Override
