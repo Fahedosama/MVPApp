@@ -50,9 +50,9 @@ public class Main2Activity extends AppCompatActivity implements Main2MvpView {
        // Toast.makeText(this, "" + mainPresenter.lst.size(), Toast.LENGTH_SHORT).show();
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(mainPresenter.lst);
         RecyclerView.LayoutManager recyce = new LinearLayoutManager(Main2Activity.this);
-        recyclerView.addItemDecoration(new GridSpacingdecoration(2, dpToPx(5), true));
+       // recyclerView.addItemDecoration(new GridSpacingdecoration(2, dpToPx(5), true));
         recyclerView.setLayoutManager(recyce);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+      //  recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(recyclerAdapter);
     }
 
