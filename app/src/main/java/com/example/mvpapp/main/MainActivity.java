@@ -64,4 +64,8 @@ public class MainActivity extends AppCompatActivity implements MainMvpView {
     public void showInfo(String sign) {
 
     }
+
+    public void sayHelloToFahed(){
+        System.out.println("Hello Fahed...");
+    }
 }
